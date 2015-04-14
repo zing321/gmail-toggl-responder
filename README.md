@@ -34,7 +34,7 @@ Your `WORKSPACE_ID` can be found by going to any one of the reports for your des
 
 In this case `WORKSPACE_ID = '123456'`
 
-## KEYWORD
+### KEYWORD
 `KEYWORD` is **not** case-sensitive. It can be almost anything; a word or a phrase.
 
 ### CLIENT_IDS
@@ -48,12 +48,12 @@ More clients can be added by adding a comma like so **WITHOUT A SPACE**:
 
 `CLIENT_IDS = '98765432,36273283'`
 
-## CSV_HEADERS
+### CSV_HEADERS
 `CSV_HEADERS` is exactly the same as the first row of a CSV file, its the headers delimited by a comma. They can be named anything.
 
 **Important!**: The last two columns will always be `,,Total Duration`. If these are removed there won't be any problems. However the generated CSV file will have a timestamp in an unlabeled column on the first data row
 
-## MESSAGE_BODY
+### MESSAGE_BODY
 The message to send with the CSV attachment
 
 ### ENTRY_TO_CSV
