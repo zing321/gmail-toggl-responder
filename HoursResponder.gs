@@ -11,6 +11,7 @@ var API_DETAILS_URL = 'https://toggl.com/reports/api/v2/details'
 var API_TOKEN = '';
 var WORKSPACE_ID = '';
 var CLIENT_IDS = ''; //seperated by comma
+var KEYWORD = 'hours'; //not case sensitive
 var CSV_HEADERS = 'Description,Start,End,Duration,,Total Duration';
 var MESSAGE_BODY = 'Here are the hours you requested!'
 
@@ -84,7 +85,7 @@ function HoursResponder() {
   try {
     var hoursThread = findHoursRequest(unreadThreads);
     if(typeof hoursThread === 'undefined')
-      throw 'No Threads to process'
+      throw 'No Threads to process';
 
     var dateRange = getDateRangeInString(hoursThread.getFirstMessageSubject());
     var timeEntries = requestDetailedReportFromToggl(dateRange);
@@ -119,9 +120,10 @@ getUnreadEmailThreads = function(){
 //message Thread must only have 1 message
 findHoursRequest = function(threads){
   var returnThread;
+  var keyword = KEYWORD.toUpperCase();
   threads.forEach(function(thread){
     var subject = thread.getFirstMessageSubject().toUpperCase();
-    if(subject.search('HOURS') >= 0 && !doesLabelExist(thread.getLabels()))
+    if(subject.search(keyword) >= 0 && !doesLabelExist(thread.getLabels()))
       returnThread = thread;
   });
   return returnThread;
