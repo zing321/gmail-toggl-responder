@@ -8,9 +8,9 @@
 /*------------------------------------------USER-SETTINGS--------------------------------------------*/
 
 var API_DETAILS_URL = 'https://toggl.com/reports/api/v2/details'
-var API_TOKEN = 'a3b485d41e7498046e0d02b6de3b49a9';
-var WORKSPACE_ID = '847555';
-var CLIENT_IDS = '16336145'; //seperated by comma
+var API_TOKEN = '';
+var WORKSPACE_ID = '';
+var CLIENT_IDS = ''; //seperated by comma
 var CSV_HEADERS = 'Description,Start,End,Duration,,Total Duration';
 var MESSAGE_BODY = 'Here are the hours you requested!'
 
