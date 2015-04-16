@@ -190,7 +190,7 @@ fetchAllDataAcrossPages = function(url, authString, page, dataList){
   dataList = dataList.concat(JSONDict['data']);
 
   var entriesPerPage = JSONDict['per_page'];
-  if(JSONDict['total_count'] - entriesPerPage * page > entriesPerPage)
+  if(JSONDict['total_count'] - entriesPerPage * page > 0)
     return fetchAllDetailedData(url, authString, page + 1, dataList);
   else
     return dataList;
