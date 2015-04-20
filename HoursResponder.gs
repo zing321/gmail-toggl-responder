@@ -12,7 +12,7 @@ var API_TOKEN = '';
 var WORKSPACE_ID = '';
 var CLIENT_IDS = ''; //seperated by comma
 var KEYWORD = 'hours'; //not case sensitive
-var CSV_HEADERS = 'Description,Start,End,Duration,,Total Duration';
+var CSV_HEADERS = 'Project,Description,Start,End,Duration,,Total Duration';
 var MESSAGE_BODY = 'Here are the hours you requested!'
 
 //functions to modify raw entry values
@@ -29,12 +29,13 @@ millisecondsToHMS = function(ms){
   var h = ms / 3600000; //hours
   var m = (h % 1) * 60; //minutes
   var s = (m % 1) * 60; //seconds
-
-  return h.toFixed(0) + ':' + m.toFixed(0) + ':' + s.toFixed(0);
+  
+  return Math.floor(h) + ':' + Math.floor(m) + ':' + Math.round(s);
 };
 
 //should be in order relative to your CSV_HEADERS
 var ENTRY_TO_CSV = {
+  'project': doNothing,
   'description': doNothing,
   'start': dateToString,
   'end': dateToString,
