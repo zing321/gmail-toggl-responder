@@ -25,6 +25,7 @@ dateToString = function(date){
   return date.toString();
 };
 
+//DO NOT REMOVE THIS FUNCTION
 millisecondsToHMS = function(ms){
   //this function should've been built into JS -_-
   var h = ms / 3600000; //hours
@@ -215,7 +216,7 @@ generateCSVStringFromKeys = function(dict){
   var csvString = '';
   for(var key in dict){
     csvString += key + ',';
-  };
+  }
   return csvString;
 };
 
@@ -223,7 +224,7 @@ generateCSVStringFromValues = function(dict, modifier){
   var csvString = '';
   for(var key in dict){
     csvString += modifier(dict[key]) + ',';
-  };
+  }
   return csvString;
 };
 
