@@ -1,5 +1,7 @@
 # gmail-toggl-responder
 This is a **Google Apps Script** thats designed to work within your Google Drive without deploying as an add-on or web app.<br>It automatically responds to your client/employer's hours request with a CSV containing your toggl tasks and the total time for the requested date range.
+#### Change Log
+- 5/12/15 - Added option (`SHOW_TOTALS_PER_PROJECT`) to show total hours per project
 
 ## How It Works
 1. Your client/employer sends you an email with the subject containing the specified keyword (default: 'hours') and a date range in the format 'Month dd' or 'Mon dd'. Single digits ('d') are also acceptable.  
@@ -23,6 +25,7 @@ To use this script certian variables must be set within the script. Most are alr
   - `CSV_HEADERS`
   - `MESSAGE_BODY`
   - `ENTRY_TO_CSV`
+  - `SHOW_TOTALS_PER_PROJECT`
 
 ### API_TOKEN
 Your `API_TOKEN` can be found by going to the toggl app, clicking _My Profile_ under your name at the top right hand corner, and its on the bottom of the page.
@@ -77,3 +80,5 @@ ENTRY_TO_CSV = {
   'dur': millisecondsToHMS
 };
 ```
+### SHOW_TOTALS_PER_PROJECT
+set to `true` to show total hours per project
