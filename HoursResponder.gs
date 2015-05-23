@@ -32,6 +32,12 @@ millisecondsToHMS = function(ms){
   var m = (h % 1) * 60; //minutes
   var s = (m % 1) * 60; //seconds
 
+  //If s rounds up to 1 minute then add 1 to m and set s to 0
+  if(Math.round(s) == 60) {
+    m++;
+    s = 0;
+  }
+
   return Math.floor(h) + ':' + Math.floor(m) + ':' + Math.round(s);
 };
 

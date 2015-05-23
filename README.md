@@ -1,17 +1,19 @@
 # gmail-toggl-responder
-This is a **Google Apps Script** thats designed to work within your Google Drive without deploying as an add-on or web app.<br>It automatically responds to your client/employer's hours request with a CSV containing your toggl tasks and the total time for the requested date range.
-#### Change Log
+This is a **Google Apps Script** that's designed to work within your Google Drive without deploying as an add-on or web app.<br>It automatically responds to your client/employer's hours request with a CSV containing your toggl tasks and the total time for the requested date range.
+
+## Change Log
+- 5/23/15 - Fixed rounding issue in millisecondsToHMS that caused 00:00:60 to not transform to 00:01:00
 - 5/12/15 - Added option (`SHOW_TOTALS_PER_PROJECT`) to show total hours per project
 
 ## How It Works
 1. Your client/employer sends you an email with the subject containing the specified keyword (default: 'hours') and a date range in the format 'Month dd' or 'Mon dd'. Single digits ('d') are also acceptable.  
-Valid: `Hours for March 23 to April 5`, `jan 10 february 1 hours`  
-Invalid: `March 23 to April 5`, `Hours January 10`
-2. The script runs on a time-driven trigger set in the Google Apps Script editor, its the button with the chat bubble clock thing
-3. The script parses the subjects of **unread** emails to find a thread the specified keyword, a date range, and **without** a `HRespProcessed` tag.
-4. The script then fetches a detailed breakdown of tasks within the date range from toggl
-5. Data is then converted to CSV and sent to your client/employer as an attachment
-6. Finally the email thread is marked `HRespProcessed`
+2. Valid: `Hours for March 23 to April 5`, `jan 10 february 1 hours`  
+3. Invalid: `March 23 to April 5`, `Hours January 10`
+4. The script runs on a time-driven trigger set in the Google Apps Script editor, its the button with the chat bubble clock thing
+5. The script parses the subjects of **unread** emails to find a thread the specified keyword, a date range, and **without** a `HRespProcessed` tag.
+6. The script then fetches a detailed breakdown of tasks within the date range from toggl
+7. Data is then converted to CSV and sent to your client/employer as an attachment
+8. Finally the email thread is marked `HRespProcessed`
 
 ## Usage
 To use this script certian variables must be set within the script. Most are already set.
@@ -80,5 +82,6 @@ ENTRY_TO_CSV = {
   'dur': millisecondsToHMS
 };
 ```
+
 ### SHOW_TOTALS_PER_PROJECT
 set to `true` to show total hours per project
