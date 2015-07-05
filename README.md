@@ -1,3 +1,4 @@
+# NOTE: THIS SCRIPT DOES NOT WORK AT THE MOMENT CHECK ISSUES
 # gmail-toggl-responder
 This is a **Google Apps Script** that's designed to work within your Google Drive without deploying as an add-on or web app.<br>It automatically responds to your client/employer's hours request with a CSV containing your toggl tasks and the total time for the requested date range.
 
